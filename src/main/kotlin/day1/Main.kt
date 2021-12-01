@@ -7,8 +7,6 @@ fun solveFor(numbers: List<Int>, offset: Int): Int =
 
 fun main(args: Array<String>) {
     val numbers = File("day1/input").readLines().map { it.toInt() }
-    var offset = 1
-    println(solveFor(numbers, offset))
-    offset = 3
-    println(solveFor(numbers, offset))
+    println(solveFor(numbers, 1))
+    println(solveFor(numbers, 3))
 }
