@@ -10,11 +10,10 @@ data class Board(val numbers: List<List<Int>>) {
 
 val lines = File("day4/input").readLines()
 val numbers = lines[0].split(",").map {it.toInt()}
-var boards = lines.asSequence().drop(1)
+var boards = lines.drop(1).filter { it.isNotEmpty() }
     .map { it.split(" ").filter { it.isNotEmpty() }.map { it.toInt() } }
-    .filter { it.isNotEmpty() }
-    .windowed(5, 5, false)
-    .map { lines -> Board(lines) }.toList()
+    .windowed(5, 5)
+    .map { lines -> Board(lines) }
 
 data class Outcome(val marked: List<Int>, val success: List<Board>, val fail: List<Board>)
 val outcomes = numbers
